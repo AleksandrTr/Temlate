@@ -1,6 +1,7 @@
 import javax.swing.*;
+import java.io.Serializable;
 
-public class Values {
+public class Values implements Serializable {
 
     //Stress components
     public double S_X;
@@ -14,9 +15,6 @@ public class Values {
     public void SetStress (double SX,double SY, double SXY)
     {
         //Giving numbers
-       // String SX = JOptionPane.showInputDialog(null,"Input SX");
-       // String SY = JOptionPane.showInputDialog(null,"Input SY");
-        //String SXY = JOptionPane.showInputDialog(null,"Input SXY");
 
          S_X = SX;
          S_Y = SY;
@@ -24,12 +22,9 @@ public class Values {
 
     }
 
-
     public void SetAllowables (double FTU, double FSU)
     {
         //Giving allowables
-       // String FTU = JOptionPane.showInputDialog(null,"F_TU");
-        // String FSU = JOptionPane.showInputDialog(null,"F_SU");
 
         F_TU = FTU;
         F_SU = FSU;
@@ -60,4 +55,10 @@ public class Values {
         }
         return S_12;
     }
+
+    public double MS(double Stress, double Allowable)
+    {
+        return Allowable/Stress - 1;
+    }
+
 }
